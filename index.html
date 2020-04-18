@@ -55,7 +55,7 @@
             last = [e.clientX, e.clientY];
           }
 
-          canvas.onmouseup = () => {
+          canvas.onmouseup = (e) => {
             painting = false;
           };
           console.log(e.clientX);

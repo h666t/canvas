@@ -1,0 +1,32 @@
+canvas.onmousedown = (e) => {
+        painting = true;
+        last = [e.clientX, e.clientY];
+      };
+      if (painting === true) {
+        canvas.onmousemove = (e) => {
+          drawLine(last[0], last[1], e.clientX, e.clientY);
+          last = [e.clientX, e.clientY];
+        };
+      }
+      canvas.onmouseup = (e) => {
+        painting = false;
+        console.log("123");
+      };
+
+
+       canvas.onmousedown = (e) => {
+          painting = true;
+          last = [e.clientX, e.clientY];
+        };
+        canvas.onmousemove = (e) => {
+          if (painting === true) {
+            drawLine(last[0], last[1], e.clientX, e.clientY);
+            last = [e.clientX, e.clientY];
+          }
+
+          canvas.onmouseup = (e) => {
+            painting = false;
+          };
+          console.log(e.clientX);
+          console.log(e.clientY);
+        };
