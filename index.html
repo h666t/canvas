@@ -2,7 +2,7 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
     <title>画板</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -13,9 +13,10 @@
       let canvas = document.getElementById("canvas");
       let ctx = canvas.getContext("2d");
       let painting = false;
-      var isTouchDevice = "ontouchstart" in document.documentElement;
-      console.log(isTouchDevice);
+      let isTouchDevice = "ontouchstart" in document.documentElement;
       //判读是否支持触摸屏
+      let last
+      //储存当前所在的坐标
       canvas.width = document.documentElement.clientWidth;
       canvas.height = document.documentElement.clientHeight;
       ctx.fillStyle = "black";
@@ -30,9 +31,9 @@
         ctx.stroke();
       }
 
-      ctx.stroke();
+
+
       if (isTouchDevice) {
-        console.log("目前什么都没写");
         canvas.ontouchstart = (e) => {
           let x = e.touches[0].clientX;
           let y = e.touches[0].clientY;
@@ -58,8 +59,6 @@
           canvas.onmouseup = (e) => {
             painting = false;
           };
-          console.log(e.clientX);
-          console.log(e.clientY);
         };
       }
     </script>
